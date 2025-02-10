@@ -1,4 +1,4 @@
-export const DivisionData = [
+const DivisionData = [
     {
         id: 1,
         name: "Bussines Development",
@@ -24,3 +24,5 @@ export const DivisionData = [
         name: "Operations",
     },
 ];
+
+module.exports = DivisionData

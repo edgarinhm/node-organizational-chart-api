@@ -3,13 +3,14 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const { DivisionData } = require('./data/divison-data');
+const DivisionData = require('./data/divison-data');
+const corsOptions = require('./config/cors-options');
 
 const PORT = process.env.PORT || 3000;
 
 const app = express();
 
-app.use(cors);
+app.use(cors(corsOptions));
 
 app.get('/division', async (req, res) => {
     try {
