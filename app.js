@@ -66,7 +66,7 @@ app.post('/positions', async (req, res) => {
     }
 });
 
-app.put('/positions:id', async (req, res) => {
+app.put('/positions/:id', async (req, res) => {
     try {
         const newPosition = { name: req.body.name, division: req.body.division, tier: req.body.tier, parentId: req.body.parentId ?? 0 };
         PositionsData.push(newPosition);
@@ -76,7 +76,7 @@ app.put('/positions:id', async (req, res) => {
     }
 });
 
-app.delete('/positions:id', async (req, res) => {
+app.delete('/positions/:id', async (req, res) => {
     try {
         const positionIndex = PositionsData.findIndex(postion => postion.id === parseInt(req.params.id));
         if (positionIndex === -1) {
