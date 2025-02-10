@@ -72,7 +72,7 @@ app.put('/positions:id', async (req, res) => {
         PositionsData.push(newPosition);
         res.send(PositionsData);
     } catch (error) {
-        res.status(500).json({ message: 'Error Updating Position' });
+        res.status(500).json({ message: 'Error Updating Position', error });
     }
 });
 
@@ -85,7 +85,7 @@ app.delete('/positions:id', async (req, res) => {
         PositionsData.splice(positionIndex, 1);
         res.send();
     } catch (error) {
-        res.status(500).json({ message: 'Error Getting Positions' });
+        res.status(500).json({ message: 'Error Getting Positions', error });
     }
 });
 
