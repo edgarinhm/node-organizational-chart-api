@@ -76,6 +76,19 @@ app.put('/positions:id', async (req, res) => {
     }
 });
 
+app.delete('/positions:id', async (req, res) => {
+    try {
+        const positionIndex = PositionsData.findIndex(postion => postion.id === parseInt(req.params.id));
+        if (positionIndex === -1) {
+            return res.status(404).send({ message: 'Invalid Index' });
+        }
+        PositionsData.splice(positionIndex, 1);
+        res.send();
+    } catch (error) {
+        res.status(500).json({ message: 'Error Getting Positions' });
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`server listen in port ${PORT}`)
 })
