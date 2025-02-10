@@ -1,6 +1,6 @@
 # Welcome Node express web server and backend!
 
-![demo image](image.png)
+![divisions](image.png)
 
 ## Getting Started
 
