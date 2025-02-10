@@ -72,7 +72,7 @@ app.put('/positions:id', async (req, res) => {
         PositionsData.push(newPosition);
         res.send(PositionsData);
     } catch (error) {
-        res.status(500).json({ message: 'Error Updating Position', error });
+        res.status(500).json({ message: 'Error Updating Position' });
     }
 });
 
