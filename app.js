@@ -58,7 +58,7 @@ app.get('/positions', async (req, res) => {
 
 app.post('/positions', async (req, res) => {
     try {
-        const newPosition = { id: PositionsData.length + 1, name: req.body.name, division: req.body.division, tier: req.body.tier, parentId: req.body.parentId ?? 0 };
+        const newPosition = { id: PositionsData.length + 1, name: req.body.name, division: parseInt(req.body.division), tier: req.body.tier, parentId: req.body.parentId ?? 0 };
         PositionsData.push(newPosition);
         res.send(PositionsData);
     } catch (error) {
