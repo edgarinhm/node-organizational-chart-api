@@ -2,6 +2,7 @@ const express = require('express');
 const positionRouter = express.Router();
 
 const PositionsData = require('../data/positions-data');
+const EmployeesData = require('../data/employees-data');
 
 positionRouter.get('/positions', async (req, res) => {
     try {
@@ -42,6 +43,16 @@ positionRouter.delete('/positions/:id', async (req, res) => {
         res.send();
     } catch (error) {
         res.status(500).json({ message: 'Error Getting Positions', error });
+    }
+});
+
+positionRouter.get('/positions/:id/employees', async (req, res) => {
+    try {
+        const positionId = parseInt(req.params.id);
+        const response = await Promise.resolve({ data: EmployeesData.filter((employee) => employee.positionId === positionId) });
+        res.json(response);
+    } catch (error) {
+        res.status(500).json({ message: 'Error Getting Position Employees' });
     }
 });
 

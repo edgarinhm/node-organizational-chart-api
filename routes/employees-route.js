@@ -14,7 +14,7 @@ employeeRouter.get('/employees', async (req, res) => {
 
 employeeRouter.post('/employees', async (req, res) => {
     try {
-        const newemployee = { id: EmployeesData.length + 1, name: req.body.name, parentId: req.body.parentId ?? 0 };
+        const newemployee = { id: EmployeesData.length + 1, firstName: req.body.firstName, lastName: req.body.lastName, positionId: req.body.positionId ?? 0 };
         EmployeesData.push(newemployee);
         res.send(EmployeesData);
     } catch (error) {
